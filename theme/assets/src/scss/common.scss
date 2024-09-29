@@ -1,0 +1,18 @@
+// ? ========== Containers ==================================
+// ? ========================================================
+
+$containerWidth: $maxWidthContainer + $containerPadding;
+[class*="__container"] {
+   max-width: var(--max-width-container);
+   width: 100%;
+   margin: 0 auto;
+   padding: toRem(0) toRem(100);
+   @media (max-width: toEm(1280)) {
+      padding: toRem(0) toRem(40);
+   }
+   @media (max-width: $tablet) {
+      padding: toRem(0) toRem(15);
+   }
+}
+
+// ? ========================================================

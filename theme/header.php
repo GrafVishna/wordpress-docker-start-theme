@@ -16,7 +16,7 @@
 
 <?php get_template_part('head'); ?>
 
-<body class="bg-gray-900" <?php body_class(); ?>>
+<body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'fe'); ?></a>

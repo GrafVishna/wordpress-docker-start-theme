@@ -12,13 +12,17 @@
 *::after {
    display: inline-block;
 }
-:focus,
-:active {
-   // outline: none;
+*:focus,
+*:active {
+   outline: none;
 }
 a:focus,
 a:active {
-   // outline: none;
+   outline: none;
+}
+a:hover {
+   color: inherit;
+   text-decoration: underline;
 }
 html,
 body {

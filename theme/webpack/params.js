@@ -1,5 +1,5 @@
 const webpackParams = {
-   isTailwind: true
+   isTailwind: false
 }
 
-export default webpackParams 
+export default webpackParams

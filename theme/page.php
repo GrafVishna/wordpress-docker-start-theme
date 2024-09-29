@@ -17,7 +17,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-
+	<h1>lorem</h1>
 	<?php
 	while (have_posts()) :
 		the_post();

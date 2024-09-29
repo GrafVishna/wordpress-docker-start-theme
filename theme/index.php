@@ -51,7 +51,5 @@ get_header();
 	?>
 </main><!-- #main -->
 
-<div class="text-red-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, incidunt!</div>
-
 <?php
 get_footer();

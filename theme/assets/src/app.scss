@@ -1,33 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use "sass:math" as math;
+// ? ========================================================
 
-// ? ======================================
-/* 
-Null styles (If you don't use tailwind)
-*/
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+// ? Null styles (If you don't use tailwind) ================
+
 // @import "scss/base/null";
-// ? ======================================
-/* 
-Swiper slider base styles
-*/
+
+// The width of the canvas (layout)
+$maxWidth: 1440;
+// The width of the restrictive container
+$maxWidthContainer: 1400; // (0 = no restriction)
+// General indentation from a container
+$containerPadding: 30; // (30 = 15px left and right, 0 = no retreat)
+
+@import "scss/base/mixins";
+
+$fontSize: toRem(16);
+$minWidth: 320;
+// Breikpoints
+$tablet: toEm(991.98); // tablets, some phones in horizontal position
+$mobile: toEm(767.98); // phones l
+$mobileSmall: toEm(479.98); // phones with
+
+// ? ========== Libraries and modules styles ================
+// ? ========================================================
+
+// ? Swiper slider base styles ==============================
+
 // @import "scss/base/swiper-base";
-// ? ======================================
-/* 
-Select base styles
-*/
+
+// ? Select base styles =====================================
+
 // @import "scss/base/select";
-// ? ======================================
+
+// ? ========== Styles of blocks and components =============
+// ? ========================================================
 
 @import "scss/variables";
+
 @import "scss/fonts/fonts";
-@import "scss/base/mixins";
+@import "scss/fonts/icons";
+
 @import "scss/common";
+// @import "scss/tailwind-layers";
 
-// ? ======================================
+// ? ========== Other styles ================================
+// ? ========================================================
 
-body,
-html {
-   // opacity: 0.9 !important;
-   // display: none !important;
+body {
+   background: #fff;
+   * {
+      color: #000;
+   }
+   a {
+      &:hover {
+         color: #000;
+      }
+   }
 }
