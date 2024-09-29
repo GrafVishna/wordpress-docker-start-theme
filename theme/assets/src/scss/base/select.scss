@@ -1,0 +1,223 @@
+.select {
+   min-width: 0;
+   position: relative;
+   width: 100%;
+   // .select__body
+   &__body {
+      position: relative;
+   }
+   // .select__title
+   &__title {
+      padding: 0 toRem(10) 0 toRem(25);
+      outline: toRem(1) solid var(--white-color);
+      height: toRem(48);
+      transition: outline 0.3s;
+      font-size: toRem(16);
+      box-shadow:
+         0 toRem(0.241) toRem(0.01) toRem(-1.125) rgba(0, 0, 0, 0.07),
+         0 toRem(2) toRem(0.8) toRem(-2.5) rgba(0, 0, 0, 0.07);
+      border-radius: var(--main-border-radius) !important;
+      -webkit-border-radius: var(--main-border-radius) !important;
+      text-align: left;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 100%;
+      &:focus {
+         outline-color: var(--green-color);
+      }
+   }
+   .form_modal & {
+      .select__title {
+         outline-color: var(--black-color);
+      }
+   }
+
+   // .select__value
+   &__value {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      height: toRem(30);
+      padding: 0;
+      gap: toRem(10);
+      & > * {
+         flex: 1 1 auto;
+      }
+      &:after {
+         content: "\e90a";
+         @extend %ic;
+         display: block;
+         font-size: toRem(16);
+         flex: 0 0 toRem(20);
+         width: toRem(20);
+         height: toRem(20);
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: all 0.3s ease 0s;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: var(--white-color);
+         ._select-open & {
+            // transform: rotate(-180deg);
+            transform: scale(1, -1);
+         }
+      }
+      &._select-pseudo-label {
+         &::before {
+            content: attr(data-pseudo-label);
+            opacity: 0.5;
+         }
+      }
+   }
+   // .select__content
+   &__content {
+      flex: 1 1 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 0.2s;
+      ._select-active & {
+         color: var(--white-color);
+      }
+   }
+   .form_modal & {
+      .select__value {
+         &::after {
+            color: var(--black-color);
+         }
+      }
+      .select__content {
+         color: rgba(0, 0, 0, 0.6);
+      }
+   }
+
+   &._select-active {
+      .form_modal & {
+         .select__content {
+            color: var(--black-color);
+         }
+      }
+   }
+   // .select__text
+   &__text {
+      flex: 1 1 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+   }
+   &__input {
+      width: 100%;
+      background-color: transparent;
+      height: 100%;
+   }
+   // .select__options
+   &__options {
+      color: #000;
+      position: absolute;
+      top: calc(100% - toRem(1));
+      min-width: 100%;
+      left: 0;
+      background-color: #fff;
+      padding: toRem(10) 0 toRem(5) 0;
+      overflow: hidden;
+      box-shadow:
+         0 toRem(0.241) toRem(0.01) toRem(-1.125) rgba(0, 0, 0, 0.2),
+         0 toRem(2) toRem(0.8) toRem(-2.5) rgba(0, 0, 0, 0.2);
+      border-radius: var(--main-border-radius) !important;
+      -webkit-border-radius: var(--main-border-radius) !important;
+   }
+   .form_modal & {
+      .select__options {
+         border: toRem(1) solid var(--black-color);
+      }
+   }
+   // .select__scroll
+   &__scroll {
+      overflow-y: auto;
+      overflow-x: hidden;
+      // Максимальна висота
+      max-height: toRem(200);
+      .form_modal & {
+         max-height: toRem(100);
+      }
+      // Стилі скроллбару
+      .simplebar-scrollbar {
+         &::before {
+            //opacity: 1;
+         }
+      }
+   }
+   // .select__option
+   &__option {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      padding: toRem(8) toRem(15);
+      color: inherit;
+      &._select-selected {
+         background-color: #eee;
+      }
+      .select-countries & {
+         display: flex;
+         align-items: center;
+         gap: toRem(10);
+         span {
+            display: inline-block;
+            &::before {
+               display: inline-block;
+               flex: 0 0 30px;
+            }
+         }
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            // background: #d9d9d9;
+            background: var(--green-light-color);
+         }
+      }
+   }
+
+   // Конструкція додаткових даних
+   &__row {
+      display: inline-flex;
+      align-items: center;
+   }
+   &__asset {
+   }
+   &__text {
+   }
+
+   &--show-top {
+      .select__options {
+         top: auto;
+         bottom: calc(100% - toRem(1));
+         border: toRem(1) solid #d9d9d9;
+         border-bottom: 0;
+         border-radius: toRem(4) toRem(4) 0 0;
+         padding: toRem(5) 0 toRem(10) 0;
+      }
+   }
+
+   // Стан селекту
+   &._select-open {
+   }
+   &._select-disabled {
+   }
+   &._select-active {
+   }
+   &._select-focus {
+   }
+   &._select-multiple {
+   }
+   &._select-checkbox {
+   }
+}
+
+// Тег
+._select-tag {
+   cursor: pointer;
+}

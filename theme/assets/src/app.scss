@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// ? ======================================
+/* 
+Null styles
+*/
+// @import "scss/base/null";
+// ? ======================================
+/* 
+Swiper slider base styles
+*/
+// @import "scss/base/swiper-base";
+// ? ======================================
+/* 
+Select base styles
+*/
+// @import "scss/base/select";
+// ? ======================================
+
+@import "scss/variables";
+@import "scss/fonts/fonts";
+@import "scss/base/mixins";
+@import "scss/common";
+
+// ? ======================================
+
+body,
+html {
+   // opacity: 0.9 !important;
+   // display: none !important;
+}

@@ -1,0 +1,4 @@
+.DS_Store
+/.srv/*
+!/.srv/custom.ini 
+/theme/node_modules
