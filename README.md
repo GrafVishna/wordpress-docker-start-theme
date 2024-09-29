@@ -1,4 +1,22 @@
-# WordPress Docker Start Theme
+<div style="display: flex; gap: 10px; padding: 0 0 20px 0; align-items: center; justify-content: center;">
+  <span target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/wordpress.png" alt="wordpress" width="30" height="30"/>
+  </span>
+  <span target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/docker-original-wordmark.svg" alt="wordpress" width="30" height="30"/>
+  </span>
+  <span target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/webpack-original.svg" alt="webpack" width="30" height="30"/>
+    </span>
+  <span target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="30" height="30"/>
+  </span>
+  <span target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/Tailwind-CSS-Logo.webp" alt="tailwind" width="40" height="25"/> 
+  </span>
+</div>
+
+<h1 style="text-align: center;">WordPress Docker Start Theme</h1>
 
 ## Опис
 
@@ -51,9 +69,9 @@ docker-compose down --volumes
 #### phpMyAdmin доступний за адресою: http://localhost:8181
 
 - MySQL
-- Host: mysql
-- User: root
-- Password: root
+- Host: mysql:3306
+- User: wordpress
+- Password: wordpress
 - Database: wordpress
 
 ### Налаштування середовища розробки (Webpack)
