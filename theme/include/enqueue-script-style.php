@@ -3,10 +3,8 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
+// ? Enqueue template assets (scripts and styles) =====================================================
 
-/*
- * Enqueue template assets (scripts and styles)
- */
 add_action('wp_enqueue_scripts', 'enqueue_template_assets', 10);
 function enqueue_template_assets()
 {
@@ -38,24 +36,29 @@ function enqueue_template_assets()
 	);
 }
 
-/*
-* Add custom admin styles
-*/
+// ? Add custom admin styles and scripts =========================================================
+
 add_action('admin_enqueue_scripts', 'custom_admin_styles');
 function custom_admin_styles()
 {
 	wp_enqueue_style(
 		'custom-admin-styles',
-		get_template_directory_uri() . '/assets/dist/css/admin.css',
+		get_template_directory_uri() . '/assets/dist/css/admin-app.css',
 		array(),
 		null,
 		'all'
 	);
+	wp_enqueue_script(
+		'template_scripts',
+		get_template_directory_uri() . '/assets/dist/js/admin-app.js',
+		array(),
+		null,
+		true
+	);
 }
 
-/*
-* Add defer/async attribute to scripts
-*/
+// ? Add defer/async attribute to scripts =========================================================
+
 add_filter('script_loader_tag', 'add_tag_attribute', 10, 2);
 function add_tag_attribute($tag, $handle)
 {

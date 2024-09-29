@@ -1,5 +1,5 @@
 === Ale ===
-Contributors: aletheme
+Contributors: FrontElf
 Tested up to: 6.4
 Requires at least: 6.4
 Requires PHP: 7.4

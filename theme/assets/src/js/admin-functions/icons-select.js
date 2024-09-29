@@ -1,17 +1,5 @@
 import { _slideUp, _slideDown, _slideToggle } from "../scripts/functions.js"
 
-/*
-
-Для селекту (select):
-data-show-selected - вимикає приховування вибраного елемента
-data-submit - відправляє форму при зміні селекту
-
-Для плейсхолдера (Плейсхолдер – це option з value=""):
-data-label для плейсхолдера, додає label до селекту
-data-show для плейсхолдера, показує його у списку (тільки для одиничного вибору)
-*/
-
-
 // Клас побудови Select
 class SelectConstructor {
    constructor(props, data = null) {
@@ -331,7 +319,7 @@ class SelectConstructor {
       }
    }
    // Конструктор конкретного елемента списку
-   getOption(selectOption, originalSelect) {
+   getOption(selectOption) {
       const {
          classSelectOption,
          classSelectOptionSelected
@@ -343,7 +331,7 @@ class SelectConstructor {
       } = selectOption
 
       const selectOptionSelected = selected ? ` ${classSelectOptionSelected}` : ''
-      const selectOptionHide = selected && !originalSelect.hasAttribute('data-show-selected') ? 'hidden' : ''
+      const selectOptionHide = 'hidden'
       const selectOptionClass = optionClass ? ` ${optionClass}` : ''
 
       const content = this.getSelectElementContent(selectOption)
@@ -411,17 +399,14 @@ class SelectConstructor {
    optionAction(selectItem, originalSelect, optionItem) {
       const selectOptions = selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOptions)}`)
       if (!selectOptions.classList.contains('_slide')) {
-         // Якщо не вказано налаштування data-show-selected, приховуємо вибраний елемент
-         if (!originalSelect.hasAttribute('data-show-selected')) {
-            setTimeout(() => {
-               // Спочатку все показати
-               if (selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOption)}[hidden]`)) {
-                  selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOption)}[hidden]`).hidden = false
-               }
-               // Приховуємо вибрану
-               optionItem.hidden = true
-            }, this.config.speed)
-         }
+         setTimeout(() => {
+            // Спочатку все показати
+            if (selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOption)}[hidden]`)) {
+               selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOption)}[hidden]`).hidden = false
+            }
+            // Приховуємо вибрану
+            optionItem.hidden = true
+         }, this.config.speed)
          originalSelect.value = optionItem.hasAttribute('data-value') ? optionItem.dataset.value : optionItem.textContent
          this.selectAction(selectItem)
          //Оновлюємо заголовок селекту
@@ -438,14 +423,6 @@ class SelectConstructor {
    }
    // Обробник зміни у селекті
    setSelectChange(originalSelect) {
-      // При зміні селекту надсилаємо форму
-      if (originalSelect.hasAttribute('data-submit') && originalSelect.value) {
-         let tempButton = document.createElement("button")
-         tempButton.type = "submit"
-         originalSelect.closest('form').append(tempButton)
-         tempButton.click()
-         tempButton.remove()
-      }
       const selectItem = originalSelect.parentElement
       // Виклик коллбек функції
       this.selectCallback(selectItem, originalSelect)
@@ -491,8 +468,5 @@ class SelectConstructor {
 // Запускаємо та додаємо в об'єкт модулів
 const newSelect = new SelectConstructor({})
 
-
-
-//========================================================================================================================================================
 
 

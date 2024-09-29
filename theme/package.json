@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "fonts": "node webpack/convertFonts.js",
-    "start": "webpack --config webpack.config.dev.js --watch",
+    "dev": "webpack --config webpack.config.dev.js --watch",
     "build": "webpack --config webpack.config.prod.js --mode production"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "dart-sass": "^1.25.0",
     "mini-css-extract-plugin": "^2.9.1",
     "postcss": "^8.4.47",
+    "postcss-sort-media-queries": "^5.2.0",
     "postcss-loader": "^8.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -32,15 +33,22 @@
     "thread-loader": "^4.0.4",
     "typescript": "^5.6.2",
     "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "micromodal": "^0.4.10",
+    "js-cookie": "^3.0.5",
+    "lightgallery": "^2.7.2",
+    "swiper": "^11.1.1"
   },
   "dependencies": {
+    "tailwindcss": "^3.4.13",
+    "@tailwindcss/container-queries": "^0.1.0",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
     "browser-sync": "^3.0.3",
     "clean-webpack-plugin": "^4.0.0",
     "glob": "^11.0.0",
     "path": "^0.12.7",
     "swiper": "^11.1.14",
-    "tailwindcss": "^3.4.13",
     "terser-webpack-plugin": "^5.3.10",
     "ttf2woff2": "^6.0.1",
     "webpack-assets-manifest": "^5.2.1"
