@@ -10,7 +10,7 @@ import * as TF from "./js/scripts/functions.js"
 /* Watcher */
 // Documentation inside the module file
 
-// import './scripts/watcher.js'
+import './js/scripts/watcher.js'
 
 // ? ===============================================
 

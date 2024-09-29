@@ -61,3 +61,98 @@ body {
       }
    }
 }
+
+//========================================================================================================================================================
+
+// @media (min-width: 300px) {
+//    .parallax-images { top: -10vh; }
+//    .layer-1 { top: 390px; }
+//  }
+//  @media (min-width: 325px) {
+//    .parallax-images { top: -10vh; }
+//    .layer-1 { top: 380px; }
+//  }
+//  @media (min-width: 350px) {
+//    .parallax-images { top: -10vh; }
+//    .layer-1 { top: 370px; }
+//  }
+//  @media (min-width: 375px) {
+//    .parallax-images { top: -5vh; }
+//    .layer-1 { top: 360px; }
+//  }
+//  @media (min-width: 400px) {
+//    .parallax-images { top: 0; }
+//    .layer-1 { top: 45vh; }
+//  }
+//  @media (min-width: 425px) {
+//    .parallax-images { top: 0vh; }
+//    .layer-1 { top: 300px; }
+//  }
+//  @media (min-width: 450px) {
+//    .parallax-images { top: 5vh; }
+//    .layer-1 { top: 250px; }
+//  }
+//  @media (min-width: 475px) {
+//    .parallax-images { top: 10vh; }
+//    .layer-1 { top: 200px; }
+//  }
+//  @media (min-width: 500px) {
+//    .parallax-images { top: 10vh; }
+//    .layer-1 { top: 180px; }
+//  }
+//  @media (min-width: 525px) {
+//    .parallax-images { top: 15vh; }
+//    .layer-1 { top: 150px; }
+//  }
+//  @media (min-width: 550px) {
+//    .parallax-images { top: 15vh; }
+//    .layer-1 { top: 120px; }
+//  }
+//  @media (min-width: 575px) {
+//    .parallax-images { top: 15vh; }
+//    .layer-1 { top: 100px; }
+//  }
+//  @media (min-width: 600px) {
+//    .parallax-images { top: 20vh; }
+//    .layer-1 { top: 90px; }
+//  }
+//  @media (min-width: 625px) {
+//    .parallax-images { top: 25vh; }
+//    .layer-1 { top: 70px; }
+//  }
+//  @media (min-width: 650px) {
+//    .parallax-images { top: 30vh; }
+//    .layer-1 { top: -30px; }
+//  }
+//  @media (min-width: 675px) {
+//    .parallax-images { top: 35vh; }
+//    .layer-1 { top: -50px; }
+//  }
+//  @media (min-width: 700px) {
+//    .parallax-images { top: 35vh; }
+//    .layer-1 { top: -70px; }
+//  }
+//  @media (min-width: 725px) {
+//    .parallax-images { top: 40vh; }
+//    .layer-1 { top: -90px; }
+//  }
+//  @media (min-width: 750px) {
+//    .parallax-images { top: 45vh; }
+//    .layer-1 { top: -140px; }
+//  }
+
+// .layer-1 {
+//    @include adaptiveValue("top", 52vh, -32vh, 0, 750, 300);
+// }
+
+body {
+   background: #000;
+   * {
+      color: #fff !important;
+   }
+}
+
+.test {
+   font-size: toRem(100);
+   @include adaptiveValue("font-size", 100, 20);
+}
