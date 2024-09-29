@@ -1,18 +1,18 @@
 <div style="display: flex; gap: 10px; padding: 0 0 20px 0; align-items: center; justify-content: center;">
-  <span target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/wordpress.png" alt="wordpress" width="30" height="30"/>
+  <span>
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/wordpress.svg" alt="wordpress" height="30"/>
   </span>
-  <span target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/docker-original-wordmark.svg" alt="wordpress" width="30" height="30"/>
+  <span>
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/docker.svg" alt="wordpress" height="30"/>
   </span>
-  <span target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/webpack-original.svg" alt="webpack" width="30" height="30"/>
+  <span>
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/webpack.svg" alt="webpack" height="30"/>
     </span>
-  <span target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="30" height="30"/>
+  <span>
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/sass.svg" alt="sass" height="30"/>
   </span>
-  <span target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/imgul/imgul/main/logos/Tailwind-CSS-Logo.webp" alt="tailwind" width="40" height="25"/> 
+  <span>
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/tailwind.svg" alt="tailwind" height="30"/> 
   </span>
 </div>
 
