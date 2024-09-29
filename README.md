@@ -1,10 +1,15 @@
-<p align="center" >
-  <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/5b41ae938ba97bcba066036aa3d3a4e45ff69733/.git-icons/wordpress.svg" alt="wordpress" height="30"/>
-  <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/docker.svg" alt="wordpress" height="30"/>
-  <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/tailwind.svg" alt="tailwind" height="34"/> 
-  <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/sass.svg" alt="sass" height="30"/>
-  <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/webpack.svg" alt="webpack" height="30"/>
-</p>
+<div align="center">
+  
+  ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white)
+  ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+  ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+  ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+  
+</div>
+
+---
 
 <h1 align="center">WordPress Docker Start Theme</h1>
 
