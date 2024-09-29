@@ -11,7 +11,7 @@
 
 ---
 
-<h1 align="center">WordPress Docker Start Theme</h1>
+<h1 align="center">WordPress & Docker Starter Theme</h1>
 <p align="center">
 WordPress Docker Start Theme — This is a starter WordPress theme that runs in a Docker environment along with MySQL and phpMyAdmin. The frontend is built using Webpack, PostCSS, and supports Tailwind CSS. The project includes two build modes (dev and prod), as well as features for font conversion and versioning for JS and CSS files.
 </p>
