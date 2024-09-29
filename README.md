@@ -1,18 +1,18 @@
 <div style="display: flex; gap: 10px; padding: 0 0 20px 0; align-items: center; justify-content: center;">
   <span>
-    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/wordpress.svg" alt="wordpress" height="30"/>
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/5b41ae938ba97bcba066036aa3d3a4e45ff69733/.git-icons/wordpress.svg" alt="wordpress" height="30"/>
   </span>
   <span>
     <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/docker.svg" alt="wordpress" height="30"/>
   </span>
-  <span>
-    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/webpack.svg" alt="webpack" height="30"/>
-    </span>
+    <span>
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/tailwind.svg" alt="tailwind" height="42"/> 
+  </span>
   <span>
     <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/sass.svg" alt="sass" height="30"/>
   </span>
   <span>
-    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/tailwind.svg" alt="tailwind" height="30"/> 
+    <img src="https://raw.githubusercontent.com/GrafVishna/wordpress-docker-start-theme/3a2c1e5e792f8baaaf13cf6d7c230f2408752323/.git-icons/webpack.svg" alt="webpack" height="30"/>
   </span>
 </div>
 
