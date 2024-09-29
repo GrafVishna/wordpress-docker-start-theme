@@ -6,62 +6,63 @@
   ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
   ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-  
+
 </div>
 
 ---
 
 <h1 align="center">WordPress Docker Start Theme</h1>
+<p align="center">
+WordPress Docker Start Theme — This is a starter WordPress theme that runs in a Docker environment along with MySQL and phpMyAdmin. The frontend is built using Webpack, PostCSS, and supports Tailwind CSS. The project includes two build modes (dev and prod), as well as features for font conversion and versioning for JS and CSS files.
+</p>
 
-## Опис
+---
 
-**WordPress Docker Start Theme** — це стартова тема WordPress, яка працює в середовищі Docker разом з MySQL та phpMyAdmin. Фронтенд збирається за допомогою Webpack, PostCSS, та підтримує Tailwind CSS. Проєкт включає два режими збірки (dev і prod), а також має функції для конвертації шрифтів та встановлення версій для файлів JS і CSS.
-
-## Особливості
+## Features
 
 - **Docker**:
-  - Контейнеризована розробка за допомогою Docker.
-  - Підтримка MySQL і phpMyAdmin для зручного управління базами даних.
-  
+  - Containerized development using Docker.
+  - Support for MySQL and phpMyAdmin for convenient database management.
+
 - **Webpack**:
-  - Режими розробки (live server) та продакшн.
-  - Підтримка сучасних ES6 модулів.
-  - Генерація source maps для зручної відладки в режимі розробки.
-  - Автоматичне встановлення версій для файлів JS і CSS (для уникнення кешування).
+  - Development (live server) and production modes.
+  - Support for modern ES6 modules.
+  - Generation of source maps for easier debugging in development mode.
+  - Automatic versioning for JS and CSS files (to avoid caching).
 
 - **PostCSS і Tailwind CSS**:
-  - Гнучка конфігурація PostCSS.
-  - Інтеграція з Tailwind CSS для швидкої розробки адаптивного дизайну.
+  - Flexible PostCSS configuration.
+  - Integration with Tailwind CSS for rapid development of responsive design.
 
-- **Конвертація шрифтів**:
-  - Інструмент для конвертації шрифтів у формат `.woff2`.
-  - Генерація SCSS-файлів з правилами `@font-face`.
-  - Підключення шрифтів в head з атрибутами `rel="preload"` та `crossorigin="anonymous"` для швидкого завантаження.
+- Font Conversion:
+  - Tool for converting fonts to .woff2 format.
+  - Generation of SCSS files with @font-face rules.
+  - Linking fonts in the head with rel="preload" and crossorigin="anonymous" attributes for faster loading.
 
-## Вимоги
+## Requirements
 
-- **Docker** та **Docker Compose**
-- **Node.js** (версія 20.16.0) та **npm**
+- **Docker** and **Docker Compose**
+- **Node.js** (version 20.16.0) and **npm**
 
 
-## Початок роботи
+## Starting work
 
-### Запуск Docker:
+### Docker launch:
 
-Переконайтесь, що Docker та Docker Compose встановлені на вашій машині. Для запуску всього середовища, виконайте:
+Make sure that Docker and Docker Compose are installed on your machine. To start the entire environment, run:
 
-(Ця команда підніме контейнери для WordPress, MySQL та phpMyAdmin.)
+(This command will raise containers for WordPress, MySQL and phpMyAdmin.)
 
 ```bash
 docker-compose up -d
 ```
-Зупинка середовища
+Stopping the environment.
 ```bash
 docker-compose down --volumes
 ```
 
-#### Сайт доступний за адресою: http://localhost:8000
-#### phpMyAdmin доступний за адресою: http://localhost:8181
+#### The site is accessible at the address: http://localhost:8000
+#### phpMyAdmin is accessible at the address: http://localhost:8181
 
 - MySQL
 - Host: mysql:3306
@@ -69,32 +70,32 @@ docker-compose down --volumes
 - Password: wordpress
 - Database: wordpress
 
-### Налаштування середовища розробки (Webpack)
+### Development environment setup (Webpack)
 
-Перейдіть в папку теми:
+Navigate to the theme folder:
 
 ```bash
 cd theme
 ```
 
-Встановіть необхідні залежності:
+Install the necessary dependencies:
 ```bash
 yarn
 ```
 
-Для запуску Webpack у режимі розробки з автоматичним перезавантаженням:
+To run Webpack in development mode with automatic reloading:
 
-Локальний сервер стане доступний за адресою: http://localhost:3003
+The local server will be available at: http://localhost:3003
 ```bash
 yarn dev
 ```
 
-Для збірки проєкту у продакшн-режимі:
+To build the project in production mode:
 ```bash
 yarn build
 ```
 
-Для конвертації шрифтів у формат .woff2 та генерації SCSS-файлу з правилами @font-face та підключення шрифтів в head, використовуйте:
+To convert fonts to .woff2 format and generate an SCSS file with @font-face rules, as well as to link fonts in the head, use:
 ```bash
 yarn fonts
 ```
