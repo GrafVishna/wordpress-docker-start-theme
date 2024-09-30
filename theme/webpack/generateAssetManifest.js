@@ -4,6 +4,8 @@ import crypto from 'crypto'
 import pkg from 'webpack'
 const { Compilation } = pkg
 
+let isFirstRun = true
+
 class GenerateAssetManifestPlugin {
    constructor(options) {
       this.action = options.action || 'create'
@@ -18,7 +20,6 @@ class GenerateAssetManifestPlugin {
                stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE,
             },
             async (assets) => {
-               // Фільтруємо файли, які потрібно ігнорувати
                const cssFiles = Object.keys(assets)
                   .filter((file) => file.endsWith('.css') && !this.ignoreFiles.includes(path.basename(file)))
                const jsFiles = Object.keys(assets)
@@ -27,17 +28,16 @@ class GenerateAssetManifestPlugin {
                let phpContent = "<?php\nreturn [\n"
                const fileHashes = {}
 
-               // Логіка для очищення або створення файлу
-               if (this.action === 'clear') {
-                  const outputPath = path.join('assets/assets-manifest.php')
+               if (this.action === 'clear' && isFirstRun) {
+                  const outputPath = path.join('webpack/assets-manifest.php')
                   if (fs.existsSync(outputPath)) {
                      fs.writeFileSync(outputPath, "<?php\nreturn [\n];\n?>")
-                     console.log('Файл assets-manifest.php очищено')
+                     console.log('The assets-manifest.php file is cleared')
                   } else {
-                     console.log('Файл assets-manifest.php не знайдено для очищення')
+                     console.log('Assets-Manifest.php file not found for cleaning')
                   }
+                  isFirstRun = false
                } else if (this.action === 'create') {
-                  // Обробка CSS файлів
                   cssFiles.forEach((file) => {
                      const content = assets[file].source()
                      const hash = crypto.createHash('md5').update(content).digest('hex').substr(0, 10)
@@ -55,7 +55,6 @@ class GenerateAssetManifestPlugin {
                      fileHashes[fileName] = hash
                   })
 
-                  // Обробка JS файлів
                   jsFiles.forEach((file) => {
                      const content = assets[file].source()
                      const hash = crypto.createHash('md5').update(content).digest('hex').substr(0, 10)
@@ -79,7 +78,7 @@ class GenerateAssetManifestPlugin {
                   if (!fs.existsSync(outputPath)) {
                      fs.mkdirSync(outputPath, { recursive: true })
                   }
-                  fs.writeFileSync(path.join('assets/assets-manifest.php'), phpContent)
+                  fs.writeFileSync(path.join('webpack/assets-manifest.php'), phpContent)
                }
 
                return Promise.resolve()

@@ -29,9 +29,9 @@ const commonConfig = {
           from: path.resolve(__dirname, 'assets/src/files'),
           to: path.resolve(__dirname, 'assets/dist/files'),
           globOptions: {
-            ignore: ['**/.*'], // ігноруємо приховані файли
+            ignore: ['**/.*'],
           },
-          noErrorOnMissing: true, // додаємо цю опцію
+          noErrorOnMissing: true,
         },
       ],
     }),

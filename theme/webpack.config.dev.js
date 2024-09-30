@@ -1,7 +1,8 @@
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin'
 import commonConfig from './webpack.common.js'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import GenerateAssetManifestPlugin from './webpack/generateAssetManifest.js'
+import webpackParams from './webpack/params.js'
+import tailwindcss from 'tailwindcss'
 
 const config = {
   ...commonConfig,
@@ -10,23 +11,36 @@ const config = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        exclude: [
+          /node_modules/,
+          /webpack/,
+          /languages/,
+          /webpack.common.js/,
+          /webpack.config.dev.js/,
+          /webpack.config.prod.js/,
+          /tailwind.config.js/,
+          /phpcs.xml.dist/,
+          /style-rtl.css/,
+          /package.json/,
+          /yarn.lock/,
+          /readme.txt/,
+          /LICENSE/,
+        ],
       },
       {
         test: /\.(scss|css)$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
-          'sass-loader',
           {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                syntax: 'postcss-scss',
+                plugins: [...(webpackParams.isTailwind ? [tailwindcss] : [])]
               },
             },
           },
+          'sass-loader',
         ],
       },
       {
@@ -47,25 +61,22 @@ const config = {
   },
   plugins: [
     ...commonConfig.plugins,
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-    }),
     new GenerateAssetManifestPlugin({
       action: 'clear',
     }),
     new BrowserSyncPlugin({
-      proxy: 'http://localhost:8000/',
+      proxy: webpackParams.proxy,
       host: 'localhost',
       port: 3003,
       open: 'external',
-      notify: false,
+      notify: true,
       reloadDelay: 0,
       injectChanges: true,
-      reloadOnRestart: true,
+      reloadOnRestart: false,
+      files: webpackParams.isTailwind ? [] : ["./**/*.php"],
     }),
   ],
   devtool: 'inline-source-map',
-  watch: true,
 }
 
 export default config

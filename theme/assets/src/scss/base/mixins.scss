@@ -23,6 +23,10 @@
    grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
 }
 
+@mixin adaptiveSize($propertyCalc, $symbolCalc, $meaningCalc) {
+   #{$propertyCalc}: calc(calc(1vw + 1vh) #{$symbolCalc} #{$meaningCalc});
+}
+
 // Адаптивна властивість (clamp)
 @mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
    @if ($startSize==0) {

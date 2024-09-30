@@ -1,6 +1,10 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import tailwindcss from 'tailwindcss'
 import commonConfig from './webpack.common.js'
-import GenerateAssetManifestPlugin from './webpack/generateAssetManifest.js' // Імпорт нового плагіна
+import GenerateAssetManifestPlugin from './webpack/generateAssetManifest.js'
+import webpackParams from './webpack/params.js'
+import cssnano from 'cssnano'
+import autoprefixer from 'autoprefixer'
 
 const config = {
   ...commonConfig,
@@ -18,15 +22,19 @@ const config = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
           {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                syntax: 'postcss-scss',
+                plugins: [
+                  ...(webpackParams.isTailwind ? [tailwindcss] : []),
+                  autoprefixer(),
+                  cssnano({ preset: 'default' }),
+                ],
               },
             },
           },
+          'sass-loader',
         ],
       },
       {
@@ -50,11 +58,16 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
-    new GenerateAssetManifestPlugin({
-      action: 'create',
-      ignore: ['admin.css', 'admin.js']
-    }),
+    webpackParams.isManifest
+      ? new GenerateAssetManifestPlugin({
+        action: 'create',
+        ignore: ['admin.css', 'admin.js']
+      })
+      : new GenerateAssetManifestPlugin({
+        action: 'clear'
+      }),
   ],
+  devtool: 'source-map',
 }
 
 export default config

@@ -9,7 +9,7 @@ add_action('wp_enqueue_scripts', 'enqueue_template_assets', 10);
 function enqueue_template_assets()
 {
 	// Download the asset manifest
-	$assets_manifest = include get_template_directory() . '/assets/assets-manifest.php';
+	$assets_manifest = include get_template_directory() . '/webpack/assets-manifest.php';
 
 	// Form a URL for JS
 	$app_js = isset($assets_manifest['app.js']) ? 'app.' . $assets_manifest['app.js'] . '.js' : 'app.js';

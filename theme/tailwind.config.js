@@ -1,12 +1,21 @@
 /** @type {import('tailwindcss').Config} */
+
+import typography from '@tailwindcss/typography'
+import forms from '@tailwindcss/forms'
+import containerQueries from '@tailwindcss/container-queries'
+
 export default {
    content: [
-      "./*{.php,html}",
-      "./**/*{.php,html}",
-      "./assets/src/**/*.{scss,js}",
-      "!./node_modules/**"],
+      './**/*.{php,html}',
+      './assets/src/**/*.{scss,js}',
+      '!./assets/dist/**',
+      '!./languages/**',
+      '!./webpack/**',
+      '!./node_modules/**',
+   ],
+
    theme: {
       extend: {},
    },
-   plugins: [],
+   plugins: [typography, forms, containerQueries],
 }

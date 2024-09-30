@@ -10,7 +10,7 @@ import * as TF from "./js/scripts/functions.js"
 /* Watcher */
 // Documentation inside the module file
 
-import './js/scripts/watcher.js'
+// import './js/scripts/watcher.js'
 
 // ? ===============================================
 
@@ -56,7 +56,7 @@ import './js/scripts/watcher.js'
 /* Set cookie with the given name and value. */
 // Documentation https://github.com/js-cookie/js-cookie/tree/latest#readme
 
-// import './scripts/cookie.js'
+// import './js/scripts/cookie.js'
 
 // ? Custom scripts ================================
 
