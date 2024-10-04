@@ -40,10 +40,8 @@ $mobileSmall: toEm(479.98); // phones with
 // ? ========================================================
 
 @import "scss/variables";
-
 @import "scss/fonts/fonts";
 @import "scss/fonts/icons";
-
 @import "scss/common";
 
 // @import "scss/tailwind-layers";
@@ -52,16 +50,6 @@ $mobileSmall: toEm(479.98); // phones with
 // ? ========================================================
 
 body {
-   background: #000 !important;
-   padding: toRem(20);
-   * {
-      color: #fff;
-   }
-   a {
-      &:hover {
-         color: #fff;
-      }
-   }
 }
 
 //========================================================================================================================================================

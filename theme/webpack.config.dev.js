@@ -11,56 +11,46 @@ const config = {
     rules: [
       {
         test: /\.js$/,
-        exclude: [
-          /node_modules/,
-          /webpack/,
-          /languages/,
-          /webpack.common.js/,
-          /webpack.config.dev.js/,
-          /webpack.config.prod.js/,
-          /tailwind.config.js/,
-          /phpcs.xml.dist/,
-          /style-rtl.css/,
-          /package.json/,
-          /yarn.lock/,
-          /readme.txt/,
-          /LICENSE/,
-        ],
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
       {
-        test: /\.(scss|css)$/,
-        use: [
-          'style-loader',
-          'css-loader',
+        oneOf: [
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [...(webpackParams.isTailwind ? [tailwindcss] : [])]
+            test: /\.(scss|css)$/,
+            use: [
+              'style-loader',
+              'css-loader',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  postcssOptions: {
+                    plugins: [...(webpackParams.isTailwind ? [tailwindcss] : [])],
+                  },
+                },
               },
+              'sass-loader',
+            ],
+          },
+          {
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'fonts/[name][ext][query]',
             },
           },
-          'sass-loader',
+          {
+            test: /\.(png|jpg|jpeg|gif|webp|svg)$/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'img/[name][ext][query]',
+            },
+          },
         ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[name][ext][query]',
-        },
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|webp|svg)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'img/[name][ext][query]',
-        },
       },
     ],
   },
   plugins: [
-    ...commonConfig.plugins,
     new GenerateAssetManifestPlugin({
       action: 'clear',
     }),
@@ -69,12 +59,15 @@ const config = {
       host: 'localhost',
       port: 3003,
       open: 'external',
-      notify: true,
-      reloadDelay: 0,
+      notify: false,
       injectChanges: true,
       reloadOnRestart: false,
-      files: webpackParams.isTailwind ? [] : ["./**/*.php"],
+      reload: false,
+      files: !webpackParams.isTailwind
+        ? ["./**/*.php"]
+        : [],
     }),
+    ...commonConfig.plugins,
   ],
   devtool: 'inline-source-map',
 }

@@ -7,7 +7,6 @@ async function convertFonts() {
    try {
       const ttfFiles = globSync('./assets/src/fonts/*.ttf')
 
-      // Створення папки для збереження шрифтів, якщо вона не існує
       const outputDir = './assets/dist/fonts/'
       await fs.mkdir(outputDir, { recursive: true })
 
@@ -24,7 +23,6 @@ async function convertFonts() {
    await fontsStyle()
 }
 
-// Feature to create a style file with connected fonts
 const fontsStyle = async () => {
    const fontsFile = './assets/src/scss/fonts/fonts.scss'
 

@@ -18,38 +18,44 @@ const config = {
         use: 'babel-loader',
       },
       {
-        test: /\.(scss|css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
+        oneOf: [
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  ...(webpackParams.isTailwind ? [tailwindcss] : []),
-                  autoprefixer(),
-                  cssnano({ preset: 'default' }),
-                ],
+            test: /\.(scss|css)$/,
+            use: [
+              MiniCssExtractPlugin.loader,
+              'css-loader',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  postcssOptions: {
+                    plugins: [
+                      ...(webpackParams.isTailwind ? [tailwindcss] : []),
+                      autoprefixer(),
+                      ...(process.env.NODE_ENV === 'production'
+                        ? [cssnano({ preset: 'default' })]
+                        : []),
+                    ],
+                  },
+                },
               },
+              'sass-loader',
+            ],
+          },
+          {
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'fonts/[name][ext][query]',
             },
           },
-          'sass-loader',
+          {
+            test: /\.(png|jpg|jpeg|gif|webp|svg)$/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'img/[name][ext][query]',
+            },
+          },
         ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[name][ext][query]',
-        },
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|webp|svg)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'img/[name][ext][query]',
-        },
       },
     ],
   },
@@ -58,15 +64,13 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
-    webpackParams.isManifest
-      ? new GenerateAssetManifestPlugin({
-        action: 'create',
-        ignore: ['admin.css', 'admin.js']
-      })
-      : new GenerateAssetManifestPlugin({
-        action: 'clear'
-      }),
+
+    new GenerateAssetManifestPlugin({
+      action: webpackParams.isManifest ? 'create' : 'clear',
+      ignore: webpackParams.isManifest ? ['admin.css', 'admin.js'] : [],
+    }),
   ],
+
   devtool: 'source-map',
 }
 

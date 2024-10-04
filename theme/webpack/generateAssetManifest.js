@@ -9,7 +9,7 @@ let isFirstRun = true
 class GenerateAssetManifestPlugin {
    constructor(options) {
       this.action = options.action || 'create'
-      this.ignoreFiles = options.ignore || [] // Приймаємо масив ігнорованих файлів
+      this.ignoreFiles = options.ignore || []
    }
 
    apply(compiler) {
